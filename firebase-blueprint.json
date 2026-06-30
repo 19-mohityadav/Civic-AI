@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Issue": {
+      "title": "Issue",
+      "description": "A civic issue reported by a citizen",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "severity": { "type": "string" },
+        "status": { "type": "string" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" },
+            "address": { "type": "string" }
+          },
+          "required": ["lat", "lng", "address"]
+        },
+        "reporterName": { "type": "string" },
+        "reporterId": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" },
+        "votes": { "type": "number" },
+        "verificationCount": { "type": "number" },
+        "mediaUrl": { "type": "string" }
+      },
+      "required": ["id", "title", "description", "category", "severity", "status", "location", "reporterName", "reporterId", "createdAt", "votes", "verificationCount"]
+    }
+  },
+  "firestore": {
+    "issues": {
+      "schema": "Issue",
+      "description": "Collection of civic issues"
+    }
+  }
+}
